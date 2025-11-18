@@ -1,11 +1,14 @@
-🏗 Dosificación Automática de Concreto (ACI)
- Descripción General
+# 🏗 Dosificación Automática de Concreto (ACI)
+
+## 📘 Descripción General
 
 Este proyecto implementa un programa en Python con Tkinter que realiza la dosificación automática de concreto siguiendo las recomendaciones del ACI (American Concrete Institute).
 
 El objetivo es calcular la cantidad de cemento, arena, grava y agua necesarios para un volumen específico de concreto, considerando la resistencia deseada (f'c) y el tamaño máximo del agregado. El sistema incluye una interfaz gráfica intuitiva que permite al usuario ingresar los datos y visualizar los resultados en una tabla clara y organizada.
 
-⚙ Funcionalidades
+---
+ 
+## ⚙ Funcionalidades
 
 Ingreso de los datos de entrada:
 
@@ -31,38 +34,42 @@ Resumen de los parámetros utilizados y la dosificación calculada.
 
 Mensajes de advertencia si los valores ingresados no cumplen criterios de diseño.
 
-🧮 Fundamento Teórico
+---
+
+## 🧮 Fundamento Teórico
 
 La dosificación se basa en las tablas de ACI y en la relación agua/cemento según la resistencia deseada:
 
-Relaci
-o
-ˊ
-n A/C
-=
-valor seg
-u
-ˊ
-n f’c en tabla ACI
-Relaci
-o
-ˊ
-n A/C=valor seg
-u
-ˊ
-n f’c en tabla ACI
+Tabla ACI: Relación Agua/Cemento según f'c (kg/cm²)
+| f'c (kg/cm²) | Relación A/C |
+| ------------ | ------------ |
+| 150          | 0.70         |
+| 200          | 0.60         |
+| 250          | 0.55         |
+| 300          | 0.50         |
+| 350          | 0.45         |
+| 400          | 0.40         |
 
-Donde:
 
-f'c = resistencia característica del concreto (kg/cm²)
+La relación Agua/Cemento (A/C) se selecciona según la resistencia deseada. Por ejemplo, si se solicita f'c = 250 kg/cm², la relación A/C será 0.55.
 
-Tamaño máximo del agregado determina la cantidad de agua.
+Tabla de Agua según tamaño máximo del agregado
+| Tamaño agregado (mm) | Agua (kg/m³) |
+| -------------------- | ------------ |
+| 20                   | 205          |
+| 40                   | 185          |
+| 80                   | 170          |
 
-Proporciones típicas para materiales (cemento : arena : grava) = 1 : 1.5 : 2.5
 
-El programa multiplica estas proporciones por los pesos específicos de cada material y el volumen total para obtener la dosificación final.
+A partir de estas tablas se calcula:
 
-🧰 Tecnologías Utilizadas
+Cemento (kg/m³) = Agua (kg/m³) / Relación A/C
+
+Las proporciones típicas de materiales ACI (cemento : arena : grava) = 1 : 1.5 : 2.5, que se multiplican por los pesos específicos para obtener las cantidades de arena y grava por m³.
+
+---
+
+## 🧰 Tecnologías Utilizadas
 
 Python 3.8+
 
@@ -70,10 +77,10 @@ Tkinter: Interfaz gráfica
 
 Numpy: Cálculos numéricos
 
-No se requieren librerías externas adicionales; el programa funciona en IDLE, VS Code, PyCharm o consola sin instalación extra.
+---
 
-🖥 Interfaz Gráfica
-💡 Características Visuales
+## 🖥 Interfaz Gráfica
+### 💡 Características Visuales
 
 Ventana con estilo profesional y moderno (tema "clam")
 
@@ -83,9 +90,14 @@ Tabla de resultados con tipografía legible y filas de altura adecuada
 
 Resumen de cálculo mostrado al final
 
-🧩 Componentes principales
-Sección	Descripción
-Entrada de datos	Campos para f'c, volumen y tamaño máximo de agregado
-Botón "Calcular"	Ejecuta la dosificación automática
-Tabla de resultados	Muestra cemento, arena, grava y agua por m³ y total
-Resumen	Muestra f'c ingresado, relación A/C, tamaño agregado y volumen
+
+---
+
+## 🧩 Componentes principales
+| Sección             | Descripción                                                                        |
+| ------------------- | ---------------------------------------------------------------------------------- |
+| Entrada de datos    | Campos para f'c, volumen y tamaño máximo de agregado                               |
+| Botón "Calcular"    | Ejecuta la dosificación automática                                                 |
+| Tabla de resultados | Muestra la cantidad de cada material: cemento, arena, grava y agua, por m³ y total |
+| Resumen             | Muestra f'c ingresado, relación A/C, tamaño agregado y volumen                     |
+
